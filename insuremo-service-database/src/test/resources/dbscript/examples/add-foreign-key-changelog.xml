@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet  author="susan.liu"  id="addForeignKeyConstraint-example">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_dept__person" foreignKeyTableName="t_person"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint     baseColumnNames="dept_id"
+                                     referencedColumnNames="dept_id"
+                                     constraintName="fk_dept__person"
+                                     baseTableName="t_person"
+                                     referencedTableName="t_department"/>
+    </changeSet>
+</databaseChangeLog>

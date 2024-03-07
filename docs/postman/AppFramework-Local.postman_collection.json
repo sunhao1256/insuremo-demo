@@ -1,0 +1,699 @@
+{
+	"info": {
+		"_postman_id": "7f0814cb-6bf8-4b72-ba01-2961a997d063",
+		"name": "AppFramework-Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1191227"
+	},
+	"item": [
+		{
+			"name": "Proposal",
+			"item": [
+				{
+					"name": "02.Calculate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var responseJSONData = JSON.parse(responseBody);",
+									"if(responseCode.code === 200){",
+									"    pm.collectionVariables.set(\"proposalNo\", responseJSONData.ProposalNo);",
+									"    pm.collectionVariables.set(\"policyInfo\");",
+									"    pm.collectionVariables.set(\"policyInfo\", responseBody);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ProductCode\": \"AUTRA\",\n    \"ProductVersion\": \"1.0\",\n    \"EffectiveDate\": \"2022-11-17T00:00:00\",\n    \"ExpiryDate\": \"2023-11-16T00:00:00\",\n    \"PolicyCustomerList\": [\n        {\n            \"CustomerName\": \"Eric\",\n            \"IdType\": \"1\",\n            \"IdNo\": \"3100000000\",\n            \"DateOfBirth\": \"1990-01-01T00:00:00\",\n            \"Mobile\": \"13800000000\",\n            \"Email\": \"eric.wang@ebaotech.com\"\n        }\n    ],\n    \"PolicyPaymentInfoList\": [\n        {\n            \"PayModeCode\": \"30\",\n            \"IsInstallment\": \"N\"\n        }\n    ],\n    \"ProposalStatus\": \"1\",\n    \"PolicyLobList\": [\n        {\n            \"PolicyRiskList\": [\n                {\n                    \"PolicyCoverageList\": [\n                        {\n                            \"ProductElementCode\": \"C30001\",\n                            \"SumInsured\": 100000\n                        },\n                        {\n                            \"ProductElementCode\": \"C30002\",\n                            \"SumInsured\": 200000\n                        },\n                        {\n                            \"ProductElementCode\": \"C30003\",\n                            \"SumInsured\": 10000\n                        },\n                        {\n                            \"ProductElementCode\": \"C30004\",\n                            \"SumInsured\": 250\n                        },\n                        {\n                            \"ProductElementCode\": \"C30005\",\n                            \"SumInsured\": 1500\n                        },\n                        {\n                            \"ProductElementCode\": \"C30006\",\n                            \"SumInsured\": 500\n                        }\n                    ],\n                    \"ProductElementCode\": \"R10099\",\n                    \"Relation\": \"1\",\n                    \"RiskName\": \"Tony\",\n                    \"IdType\": \"1\",\n                    \"IdNo\": \"3100000000\",\n                    \"DateOfBirth\": \"1990-01-01T00:00:00\",\n                    \"Mobile\": \"13800000000\"\n                }\n            ],\n            \"ProductCode\": \"AUTRA\",\n            \"Destination\": \"11\"\n        }\n    ],\n    \"ProposalDate\": \"2022-11-17T00:00:00\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/proposal/v1/calculate",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"proposal",
+								"v1",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02.Save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var responseJSONData = JSON.parse(responseBody);",
+									"if(responseCode.code === 200){",
+									"    pm.collectionVariables.set(\"proposalNo\", responseJSONData.ProposalNo);",
+									"    pm.collectionVariables.set(\"policyInfo\");",
+									"    pm.collectionVariables.set(\"policyInfo\", responseBody);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{policyInfo}}"
+						},
+						"url": {
+							"raw": "{{server}}/proposal/v1/save",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"proposal",
+								"v1",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03.Confirm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var responseJSONData = JSON.parse(responseBody);",
+									"if(responseCode.code === 200){",
+									"    pm.collectionVariables.set(\"proposalNo\", responseJSONData.ProposalNo);",
+									"    pm.collectionVariables.set(\"policyInfo\");",
+									"    pm.collectionVariables.set(\"policyInfo\", responseBody);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{policyInfo}}"
+						},
+						"url": {
+							"raw": "{{server}}/proposal/v1/proposalConfirm",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"proposal",
+								"v1",
+								"proposalConfirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04.Issue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var responseJSONData = JSON.parse(responseBody);",
+									"if(responseCode.code === 200){",
+									"    pm.collectionVariables.set(\"proposalNo\", responseJSONData.ProposalNo);",
+									"    pm.collectionVariables.set(\"policyInfo\");",
+									"    pm.collectionVariables.set(\"policyInfo\", responseBody);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{policyInfo}}"
+						},
+						"url": {
+							"raw": "{{server}}/proposal/v1/issue",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"proposal",
+								"v1",
+								"issue"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Common",
+			"item": [
+				{
+					"name": "swagger.json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/swagger.json",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"swagger.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "helloJack",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/helloJack",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"helloJack"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testbff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testbff",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testbff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testGIMO",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testGIMO",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testGIMO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testDB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testDB",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testDB"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testCallService/help",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testCallService/help",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testCallService",
+								"help"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testCallService/url",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testCallService/url?url=http://appframework-bff-app/test/testbff",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testCallService",
+								"url"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://appframework-bff-app/test/testbff"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testCallService/self",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testCallService/self",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testCallService",
+								"self"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testCallService/k8s",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testCallService/k8s",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testCallService",
+								"k8s"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testCallService/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/test/testCallService/public",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"test",
+								"testCallService",
+								"public"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cache",
+			"item": [
+				{
+					"name": "/public/cache/v1/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/public/cache/v1/all",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"public",
+								"cache",
+								"v1",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/public/cache/v1/clear/buckets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"CODETABLE\",\n    \"BFF\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/public/cache/v1/clear/buckets",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"public",
+								"cache",
+								"v1",
+								"clear",
+								"buckets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/public/cache/v1/clear/bucket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/public/cache/v1/clear/bucket?bucketCode=CODETABLE",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"public",
+								"cache",
+								"v1",
+								"clear",
+								"bucket"
+							],
+							"query": [
+								{
+									"key": "bucketCode",
+									"value": "CODETABLE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/public/cache/v1/clear/cache",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/public/cache/v1/clear/cache?cacheName=BFF_DEFINITION_CACHE",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"public",
+								"cache",
+								"v1",
+								"clear",
+								"cache"
+							],
+							"query": [
+								{
+									"key": "cacheName",
+									"value": "BFF_DEFINITION_CACHE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "proposalNo",
+			"value": ""
+		},
+		{
+			"key": "policyInfo",
+			"value": ""
+		}
+	]
+}

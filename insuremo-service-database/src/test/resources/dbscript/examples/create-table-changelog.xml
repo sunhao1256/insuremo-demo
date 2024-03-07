@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="createTable-example-1" author="susan.liu">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="t_department"/>
+            </not>
+        </preConditions>
+        <createTable tableName="t_department" remarks="The departments of this company.">
+            <column name="dept_id" type="decimal(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"
+                    remarks="The official department name as registered on the internal website.">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="varchar(255)"
+                    remarks="The location of the dept."/>
+            <column name="insert_by" remarks="Insert user id" type="decimal(15)"/>
+            <column name="update_by" remarks="Latest update user id" type="decimal(15)"/>
+            <column name="insert_time" remarks="Record insert time" type="datetime"/>
+            <column name="update_time" remarks="Record update time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="createTable-example-2" author="susan.liu">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="t_person"/>
+            </not>
+        </preConditions>
+        <createTable tableName="t_person">
+            <column name="person_id" type="decimal(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_name" type="varchar(50)"/>
+            <column name="firstname" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nickname" type="varchar(20)"/>
+            <column name="sex" type="char(1)"/>
+            <column name="job" type="varchar(20)"/>
+            <column name="salary" type="decimal(16)"/>
+            <column name="active" type="char(1)" defaultValue="Y"/>
+            <column name="dept_id" type="decimal(15)"/>
+            <column name="insert_by" remarks="Insert user id" type="decimal(15)"/>
+            <column name="update_by" remarks="Latest update user id" type="decimal(15)"/>
+            <column name="insert_time" remarks="Record insert time" type="datetime"/>
+            <column name="update_time" remarks="Record update time" type="datetime"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

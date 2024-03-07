@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+    <!--======================= readme ====================== 1.don't not use
+       console appender in product or int-test env,so don't add any consoleappender
+       at this file 2.you should config two system properties LOG_HOME: the root
+       directory where the log is placed,default value is . LOG_APPEND: append the
+       log to file ,default is true,in ebao tomcat it will be set to false LOG_DEFAULT_LEVEL:
+       the default root log level,default value is INFO LOG_CLEAN_HISTORY_ON_START:
+       clean the history file when app start,default value is true 3.logback will
+       search the config via order: logback.groovy, logback-test.xml logback.xml
+       so if you want to customize,pls put a logback-test.xml on the classpath.
+       4. don't add loggers if it more detail then default level,we already add
+       add the restful api to change the logger and level see LoggerMgmtResource
+       for more info pls ask shawn.yang if you want to change this file thanks! -->
+
+    <springProperty scope="context" name="APPLICATION_NAME" source="spring.application.name"/>
+
+    <include resource="logback_common.xml"/>
+    <logger name="log4jdbc.debug">
+        <level value="INFO"/>
+    </logger>
+    <logger name="org.springframework">
+        <level value="INFO"/>
+    </logger>
+    <logger name="zipkin2.reporter">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="io.opentelemetry.exporter.zipkin">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="org.springframework.cloud.openfeign.FeignClientFactoryBean">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="com.insuremo.appframework.config">
+        <level value="WARN"/>
+    </logger>
+</configuration>

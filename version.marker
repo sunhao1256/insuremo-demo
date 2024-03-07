@@ -1,0 +1,5 @@
+If this file exists, the CI process will verify the version number of vela.version and vela-parent that in pom.xml.
+You must keep the version number of vela.version and vela-parent being the same as the GIMO version of Prod environments.
+Otherwise the CI will fail.
+
+You can delete this file to skip the version validation, but we strongly don't recommend you do that.

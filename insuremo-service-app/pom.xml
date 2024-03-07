@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>appframework-bff-parent</artifactId>
+        <groupId>com.ebao.cloud.stafftraining</groupId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>appframework-bff-app</artifactId>
+
+    <properties>
+        <application.mainclass>com.ebao.cloud.App</application.mainclass>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ebao.cloud.stafftraining</groupId>
+            <artifactId>appframework-bff-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.insuremo.sdk.gimo</groupId>
+            <artifactId>proposal</artifactId>
+        </dependency>
+    </dependencies>
+</project>

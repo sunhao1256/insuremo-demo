@@ -1,0 +1,15 @@
+{
+  "env": "aws_sg_insuremo_sdb",
+  "profile": "stafftraining",
+  "application": "appframework-bff-app",
+  "pathString": "/ebaogi/aws_sg_insuremo_sdb/appframework-bff-app/",
+  "label": "",
+  "key": "",
+  "data": {
+    "jdbc.url": "",
+    "jdbc.user": "",
+    "jdbc.password": ""
+  },
+  "included_prefix": "",
+  "excluded_prefix": ""
+}

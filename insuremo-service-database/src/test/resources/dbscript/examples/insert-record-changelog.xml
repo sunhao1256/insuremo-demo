@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd ">
+    <changeSet author="susan.liu" id="insert-data-example">
+        <preConditions>
+            <sqlCheck expectedResult="0">SELECT count(*) FROM t_person WHERE person_id=1001</sqlCheck>
+        </preConditions>
+        <insert tableName="t_person">
+            <column name="person_id" value="1001"/>
+            <column name="firstname" value="Wenjing"/>
+            <column name="lastname" value="Liu"/>
+            <column name="nickname" value="Sherry"/>
+            <column name="sex" value="F"/>
+            <column name="birthday" valueDate="1997-01-20"/>
+            <column name="job" value="engineer"/>
+            <column name="active" value="Y"/>
+            <column name="email_address" value="Sherry.Liu@ebaotech.com"/>
+            <column name="dept_id" value="10002"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

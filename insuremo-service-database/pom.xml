@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>appframework-bff-parent</artifactId>
+        <groupId>com.ebao.cloud.stafftraining</groupId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>appframework-bff-database</artifactId>
+
+    <properties>
+        <application.mainclass>com.ebao.cloud.db.DatabaseMigrator</application.mainclass>
+        <liquibase.version>4.13.0</liquibase.version>
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.insuremo.appframework.starters</groupId>
+            <artifactId>insuremo-web-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ebao.cloud.stafftraining</groupId>
+            <artifactId>appframework-bff-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- use liquibase for database  -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+</project>

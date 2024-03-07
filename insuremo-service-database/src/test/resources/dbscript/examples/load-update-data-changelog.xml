@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd ">
+    <changeSet author="susan.liu" id="loadUpdateData-example-1">
+        <loadUpdateData encoding="UTF-8" file="data/dept.csv" primaryKey="id" quotchar="&quot;" separator=","
+                        relativeToChangelogFile="true" tableName="t_department">
+            <column header="dept_id" name="dept_id" type="NUMERIC"/>
+            <column header="name" name="name" type="STRING"/>
+            <column header="location" name="location" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+</databaseChangeLog>

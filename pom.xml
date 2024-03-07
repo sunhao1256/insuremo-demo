@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.insuremo.appframework</groupId>
+        <artifactId>appframework-parent</artifactId>
+        <version>1.0.17-beta</version>
+        <relativePath/>
+    </parent>
+    <packaging>pom</packaging>
+    <groupId>com.ebao.cloud.ebaogi</groupId>
+    <artifactId>appframework-bff-parent</artifactId>
+    <version>${revision}</version>
+
+    <modules>
+        <module>insuremo-service-common</module>
+        <module>insuremo-service-app</module>
+        <module>insuremo-service-database</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- application settings -->
+        <application.name>appframework-bff-app</application.name>
+        <revision>1.0-SNAPSHOT</revision>
+
+        <insuremo-starters-bom.version>1.0.17-beta</insuremo-starters-bom.version><!--change the version num when upgrade -->
+        <spring-boot-starter-test.version>2.7.12</spring-boot-starter-test.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.insuremo.appframework.starters</groupId>
+                <artifactId>insuremo-starters-bom</artifactId>
+                <version>${insuremo-starters-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot-starter-test.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- eBaoTech external maven repository,  please uncomment it if you develop or deploy app at external network -->
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>ebao</id>
+            <name>eBaoTech Maven Repository</name>
+            <url>https://public.ebaotech.com/artifactory/maven/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>ebao</id>
+            <name>eBaoTech Maven Repository</name>
+            <url>https://public.ebaotech.com/artifactory/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

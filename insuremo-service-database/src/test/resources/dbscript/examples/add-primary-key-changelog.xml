@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="susan.liu" id="t_department-add_pk-20220701">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="t_department"/>
+            </not>
+        </preConditions>
+        <addPrimaryKey columnNames="dept_id" constraintName="pk_department" tableName="t_department"/>
+    </changeSet>
+    <changeSet author="susan.liu" id="t_person-add_pk-20220701">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="t_person"/>
+            </not>
+        </preConditions>
+        <addPrimaryKey columnNames="person_id" constraintName="pk_person" tableName="t_person"/>
+    </changeSet>
+</databaseChangeLog>

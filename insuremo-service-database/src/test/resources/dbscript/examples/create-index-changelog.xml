@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="susan.liu" id="createIndex_example-1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="idx_department__name"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="idx_department__name" tableName="t_department">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="susan.liu" id="createIndex_example-2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="idx_person__full_name"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="idx_person__full_name" tableName="t_person">
+            <column name="firstname"/>
+            <column name="lastname"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

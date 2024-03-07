@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Entities Change Type,including Table,Column,etc... -->
+    <include relativeToChangelogFile="true" file="create-table-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="add-column-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="modify-column-datatype-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="rename-column-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="drop-column-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="create-index-changelog.xml"/>
+
+    <!-- Constraints Change Type -->
+    <include relativeToChangelogFile="true" file="add-primary-key-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="add-default-value-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="add-foreign-key-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="add-notnull-constraint-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="add-unique-constraint-changelog.xml"/>
+
+    <!-- Records -->
+    <include relativeToChangelogFile="true" file="load-update-data-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="insert-record-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="update-record-changelog.xml"/>
+    <include relativeToChangelogFile="true" file="delete-record-changelog.xml"/>
+
+	<!-- Special for migration -->
+	<include relativeToChangelogFile="true" file="logical-file-path-changelog.xml"/>
+</databaseChangeLog>
